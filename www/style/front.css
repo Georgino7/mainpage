@@ -1,0 +1,142 @@
+@font-face {
+    font-family: Roboto;
+    src: url(fonts/Roboto.ttf);
+}
+
+@keyframes opacityMid {
+	0% {
+	  opacity: 0;
+	  transform: scale(0.7);
+	}
+	100% {
+	  opacity: 1;
+	  transform: scale(1);
+	}
+  }
+
+  @keyframes opacitySlideDown {
+	0% {
+	  opacity: 0;
+	  transform: translateY(20%);
+	}
+	100% {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  }
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: linear-gradient(-45deg, #23d5ab, #23a6d5, #2ad7ce, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 25s ease infinite;
+	font-size: 1.5rem;
+	font-family: Roboto;
+	color:white;
+	min-height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+header {
+	width: 100%;
+	padding: 1rem 0 1rem 0;
+	height: 2rem;
+	text-align: center;
+}
+
+header a {
+	text-decoration: underline 3px rgba(255, 255, 255, 0);
+	padding: 1rem;
+	font-size: 1.5rem;
+	color: white;
+	transition: 300ms;
+}
+
+header a:hover {
+	text-decoration: none;
+	padding: 1rem;
+	font-size: 1.5rem;
+	text-shadow: rgba(255, 255, 255, 0.575) 0 0 5px;
+	text-decoration: underline 3px white;
+}
+
+footer {
+	display: block;
+	position: relative;
+	width: 100%;
+	bottom: 0;
+	margin-top: 3rem;
+	text-align: center;
+}
+
+/*Homepage*/
+
+.title {
+	width: 100%;
+	text-align: center;
+	padding: 5rem 0 5rem 0;
+}
+
+.title h1{
+	font-size: 6rem;
+	letter-spacing: 2rem;
+	text-indent: 2rem;
+}
+
+.title h1, .title p {
+	animation: 2s opacityMid;
+}
+
+.services {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.services div {
+	width: 25rem;
+	opacity: 0;
+	animation: 2s opacitySlideDown linear;
+	animation-fill-mode: both;
+	padding: 2rem;
+}
+.services div img {
+	display: block;
+	margin: auto;
+}
+.services div:nth-child(1) { animation-delay: .5s }
+.services div:nth-child(2) { animation-delay: 1s }
+.services div:nth-child(3) { animation-delay: 1.5s }
+
+.services h1{
+	text-align: center;
+}
+
+.services p {
+	text-align: justify;
+	color: #eeeeee;
+	font-size: 1.3rem;
+}
+.services img {
+	width: 2.5rem;
+	height: 2.5rem;
+	filter: invert(1);
+}

@@ -1,0 +1,16 @@
+{block content}
+<h1>Hlavní stránka</h1>
+<br>
+<div class="content-text">
+        <h2>{$content[1]->title}</h2>
+        <p>{$content[1]->text|noescape}</p>
+        <button><a n:href="Admin:contentedit $content[1]->id">Upravit</a></button>
+
+        <h2>{$content[2]->title}</h2>
+        <p>{$content[2]->text|noescape}</p>
+        <button><a n:href="Admin:contentedit $content[2]->id">Upravit</a></button>
+
+        <h2>{$content[3]->title}</h2>
+        <p>{$content[3]->text|noescape}</p>
+        <button><a n:href="Admin:contentedit $content[3]->id">Upravit</a></button>
+</div>

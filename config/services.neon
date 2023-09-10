@@ -1,0 +1,12 @@
+search:
+	-
+		in: %appDir%
+		classes:
+			- *Factory
+			- *Facade
+
+
+services:
+	- App\Router\RouterFactory::createRouter
+	- App\Model\ContentFacade
+	- App\Model\SecurityFacade
