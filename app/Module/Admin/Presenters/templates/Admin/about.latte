@@ -1,0 +1,12 @@
+{block content}
+<h1>O nás</h1>
+<br>
+<div class="content-text">
+        <h2>{$content[4]->title}</h2>
+        <p>{$content[4]->text|noescape}</p>
+        <button><a n:href="Admin:contentedit $content[4]->id">Upravit</a></button>
+
+        <h2>{$content[5]->title}</h2>
+        <p>{$content[5]->text|noescape}</p>
+        <button><a n:href="Admin:contentedit $content[5]->id">Upravit</a></button>
+</div>

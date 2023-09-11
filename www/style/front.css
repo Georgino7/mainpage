@@ -3,6 +3,10 @@
     src: url(fonts/Roboto.ttf);
 }
 
+::-webkit-scrollbar {
+	display: none;
+  }
+
 @keyframes opacityMid {
 	0% {
 	  opacity: 0;
@@ -104,14 +108,14 @@ footer {
 	animation: 2s opacityMid;
 }
 
-.services {
+.services, .about{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
 
-.services div {
+.services div, .about div {
 	width: 25rem;
 	opacity: 0;
 	animation: 2s opacitySlideDown linear;
@@ -121,22 +125,24 @@ footer {
 .services div img {
 	display: block;
 	margin: auto;
+	width: 2.5rem;
+	height: 2.5rem;
+	filter: invert(1);
 }
-.services div:nth-child(1) { animation-delay: .5s }
-.services div:nth-child(2) { animation-delay: 1s }
+.services div:nth-child(1),.about div:nth-child(1) { animation-delay: .5s }
+.services div:nth-child(2),.about div:nth-child(2)  { animation-delay: 1s }
 .services div:nth-child(3) { animation-delay: 1.5s }
 
 .services h1{
 	text-align: center;
 }
 
-.services p {
+.services p, .about p {
 	text-align: justify;
 	color: #eeeeee;
 	font-size: 1.3rem;
 }
-.services img {
-	width: 2.5rem;
-	height: 2.5rem;
-	filter: invert(1);
+
+.about div {
+	width: 50rem !important;
 }

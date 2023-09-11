@@ -33,6 +33,18 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 		$content = $this->contentFacade->getAllContent();
 		$this->template->content = $content;
 	}
+
+	function renderContact() : void
+	{
+		$content = $this->contentFacade->getAllContent();
+		$this->template->content = $content;
+	}
+
+	function renderAbout() : void
+	{
+		$content = $this->contentFacade->getAllContent();
+		$this->template->content = $content;
+	}
 	
 	public function renderContentedit(int $id): void
 	{

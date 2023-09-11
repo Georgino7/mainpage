@@ -98,6 +98,11 @@ nav button:hover {
     filter: invert(0.9);
 }
 
+.leftarrow {
+    position: absolute;
+    bottom: 0;
+}
+
 /*Content*/
 .content {
     margin-left: 10rem;

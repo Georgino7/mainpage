@@ -1,0 +1,30 @@
+{block content}
+<div class="about">
+
+<div>
+<h1>{$content[4]->title}</h1>
+<p>{$content[4]->text}</p>
+</div>
+
+<div>
+<h1>{$content[5]->title}</h1>
+<p>{$content[5]->text}</p>
+</div>
+
+</div>
+
+<div class="projects">
+<h1>Naše projekty</h1>
+</div>
+<div class="gallery">
+{foreach $content as $image}
+{if $image->tag !='CONTENT'}
+	<div class="image">
+        <div>
+        <h2>{$image->title}</h2>
+        </div>
+        <img src="{$basePath}/{$image->image}" loading="lazy" alt="obrazek">
+	</div>
+{/if}
+{/foreach}
+</div>

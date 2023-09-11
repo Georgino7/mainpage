@@ -25,4 +25,16 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
         $content = $this->contentFacade->getAllContent();
         $this->template->content = $content;
     }
+
+    public function renderAbout(): void
+    {
+        $content = $this->contentFacade->getAllContent();
+        $this->template->content = $content;
+    }
+
+    public function renderContact(): void
+    {
+        $content = $this->contentFacade->getAllContent();
+        $this->template->content = $content;
+    }
 }
