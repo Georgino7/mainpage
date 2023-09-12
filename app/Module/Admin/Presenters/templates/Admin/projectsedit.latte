@@ -1,0 +1,17 @@
+{block content}
+{control editForm}
+{if $image->image}
+    <div class="image">
+        <img src="{$basePath}/{$image->image}">
+        <div>
+        <h2>{$image->title}</h2>
+        </div>
+	</div>
+{else}
+<div class="image">
+        <img src="{$basePath}/images/no-image.jpeg">
+        <div>
+        <h2>{$image->title}</h2>
+        </div>
+	</div>
+{/if}

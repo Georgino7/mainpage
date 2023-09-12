@@ -14,7 +14,7 @@ final class ContentFacade
     ColumnTitle = 'title',
     ColumnText = 'text',
         ColumnImage = 'image',
-        ColumnStatus = 'status';
+        ColumnTag = 'tag';
     
     private Nette\Database\Explorer $database;
 
@@ -47,5 +47,34 @@ final class ContentFacade
 				self::ColumnText => $data["text"]
 			]);
 		return $image;
+	}
+
+    public function insertImage($data)
+	{
+		$image = $this->database
+			->table('content')
+			->insert([
+				self::ColumnTitle => $data["title"],
+				self::ColumnImage => $data["image"],
+				self::ColumnTag => $data["tag"]
+			]);
+		return $image;
+	}
+
+	public function editImage(int $id, $data)
+	{
+		$image = $this->database
+			->table('content')
+			->get($id);
+		$image->update($data);
+		return $image;
+	}
+
+	public function deleteImage(int $id)
+	{
+		$this->database
+		->table('content')
+		->where('id', $id)
+		->delete();
 	}
 }

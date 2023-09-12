@@ -45,6 +45,25 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 		$content = $this->contentFacade->getAllContent();
 		$this->template->content = $content;
 	}
+
+	function renderProjects() : void
+	{
+		$content = $this->contentFacade->getAllContent();
+		$this->template->content = $content;
+	}
+
+	function renderProjectsedit(int $id): void
+	{
+
+	$image = $this->contentFacade->getContentById($id);
+	if (!$image) {
+		$this->error('image not found');
+	}
+	$imageArray = $image->toArray();
+	$this->getComponent('editForm')
+		->setDefaults($imageArray);
+		$this->template->image = $image;
+	}
 	
 	public function renderContentedit(int $id): void
 	{
@@ -76,5 +95,87 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 		$contentId = $this->getParameter('id');
 		$this->contentFacade->insertContent(intval($contentId), $data);
         $this->redirect("Admin:default");
+	}
+
+	protected function createComponentImageForm(): Form
+	{
+		$form = new Form;
+		$form->addText('title', 'Titulek: ')
+			->setRequired();
+		$form->addUpload('image', 'Obrázek:')
+    	    ->addRule(Form::IMAGE, 'Thumbnail must be JPEG, PNG or GIF');
+		$tag = [
+				'CONTENT' => 'Content',
+				'IMAGE' => 'Image'
+			];
+		$form->addSelect('tag', 'Tag', $tag)
+			->setRequired();
+		$form->addSubmit('send', 'Uložit')
+			->setHtmlAttribute('class', '')
+			->renderAsButton(True);
+		$form->onSuccess[] = [$this, 'imageFormSucceeded'];
+	
+		return $form;
+	}
+
+	public function imageFormSucceeded($form, $data): void
+	{
+	$imageId = $this->getParameter('id');
+	$imageId = intval($imageId);
+	if ($data['image']->isOk()) {
+		$data->image->move('images/' . $data['image']->getSanitizedName());
+	}
+	else {
+		unset($data->image);
+		$data['image'] = null;
+	}
+
+	if ($imageId) {
+		$image = $this->contentFacade->editImage($imageId, $data);
+	} else {
+		$image = $this->contentFacade->insertImage($data);
+	}
+	$this->redirect('Admin:projects');
+	}
+
+	protected function createComponentEditForm(): Form
+	{
+		$form = new Form;
+		$form->addText('title', 'Titulek: ')
+			->setRequired();
+		$form->addUpload('image', 'Obrázek:')
+    	    ->addRule(Form::IMAGE, 'Thumbnail must be JPEG, PNG or GIF');
+		$tag = [
+			'CONTENT' => 'Content',
+			'IMAGE' => 'Image'
+			];
+		$form->addSelect('tag', 'Tag', $tag)
+			->setRequired();
+		$form->addSubmit('send', 'Uložit')
+			->setHtmlAttribute('class', '')
+			->renderAsButton(True);
+		$form->onSuccess[] = [$this, 'editFormSucceeded'];
+	
+		return $form;
+	}
+
+	public function EditFormSucceeded($form, $data): void
+	{
+		$imageId = $this->getParameter('id');
+		$imageId = intval($imageId);
+
+		if ($data['image']->isOk()) {
+			$data->image->move('upload/' . $data['image']->getSanitizedName());
+		}
+		else{
+			unset($data->image);
+		}
+
+		if ($imageId) {
+			$image = $this->contentFacade->editimage($imageId, $data);
+		} else {
+			$image = $this->contentFacade->insertimage($data);
+		}
+		$this->redirect('Admin:projects');
 	}
 }

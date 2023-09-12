@@ -1,0 +1,18 @@
+{block content}
+
+<button><a n:href="Admin:projectscreate">Přidat</a></button>
+
+<br>
+<div class="parent">
+{foreach $content as $image}
+{if $image->tag !='CONTENT'}
+	<div class="image">
+        <img src="{$basePath}/{$image->image}">
+        <div>
+        <h2>{$image->title}</h2>
+        <a n:href="Admin:projectsedit $image->id">Upravit</a>
+        </div>
+	</div>
+{/if}
+{/foreach}
+</div>
