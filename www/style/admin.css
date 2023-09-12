@@ -124,7 +124,6 @@ nav button:hover {
     }
 
 .image {
-    display: flex;
     position: relative;
     width: 20rem;
     height: 15rem;

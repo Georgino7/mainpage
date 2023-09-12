@@ -1,4 +1,8 @@
 {block content}
+<script>
+const image = 0;
+</script>
+
 <div class="about">
 
 <div>
@@ -13,17 +17,19 @@
 
 </div>
 
-<div class="projects">
 <h1>Naše projekty</h1>
-</div>
-<div class="gallery">
+<div class="gallery flex-left">
 {foreach $content as $image}
+<script>
+image = image + 1;
+</script>
+
 {if $image->tag !='CONTENT'}
 	<div class="image">
         <div>
         <h2>{$image->title}</h2>
         </div>
-        <img src="{$basePath}/{$image->image}" loading="lazy" alt="obrazek">
+        <a href="{$image->link}"><img src="{$basePath}/{$image->image}" loading="lazy" alt="obrazek"></a>
 	</div>
 {/if}
 {/foreach}

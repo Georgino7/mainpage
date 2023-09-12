@@ -108,6 +108,7 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 				'CONTENT' => 'Content',
 				'IMAGE' => 'Image'
 			];
+		$form->addText('link', 'Link: ');
 		$form->addSelect('tag', 'Tag', $tag)
 			->setRequired();
 		$form->addSubmit('send', 'Uložit')
@@ -129,7 +130,6 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 		unset($data->image);
 		$data['image'] = null;
 	}
-
 	if ($imageId) {
 		$image = $this->contentFacade->editImage($imageId, $data);
 	} else {
@@ -149,6 +149,7 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 			'CONTENT' => 'Content',
 			'IMAGE' => 'Image'
 			];
+		$form->addText('link', 'Link: ');
 		$form->addSelect('tag', 'Tag', $tag)
 			->setRequired();
 		$form->addSubmit('send', 'Uložit')
