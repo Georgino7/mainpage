@@ -103,10 +103,11 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 		$form->addText('title', 'Titulek: ')
 			->setRequired();
 		$form->addUpload('image', 'Obrázek:')
-    	    ->addRule(Form::IMAGE, 'Thumbnail must be JPEG, PNG or GIF');
+    	    ->addRule(Form::IMAGE, 'Thumbnail must be JPEG, PNG or GIF')
+			->setRequired();
 		$tag = [
-				'CONTENT' => 'Content',
-				'IMAGE' => 'Image'
+				'IMAGE' => 'Image',
+				'CONTENT' => 'Content'
 			];
 		$form->addText('link', 'Link: ');
 		$form->addSelect('tag', 'Tag', $tag)
@@ -144,7 +145,8 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 		$form->addText('title', 'Titulek: ')
 			->setRequired();
 		$form->addUpload('image', 'Obrázek:')
-    	    ->addRule(Form::IMAGE, 'Thumbnail must be JPEG, PNG or GIF');
+    	    ->addRule(Form::IMAGE, 'Thumbnail must be JPEG, PNG or GIF')
+			->setRequired();
 		$tag = [
 			'CONTENT' => 'Content',
 			'IMAGE' => 'Image'
@@ -177,6 +179,13 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 		} else {
 			$image = $this->contentFacade->insertimage($data);
 		}
+		$this->redirect('Admin:projects');
+	}
+
+	public function handleDeleteImage(int $id)
+	{
+		$id = $this->getParameter('id');
+		$this->contentFacade->deleteImage(intval($id));
 		$this->redirect('Admin:projects');
 	}
 }
