@@ -1,1 +1,16 @@
 {block content}
+<h1>Kontakt</h1>
+<br>
+<div class="content-text">
+        <h2>{$content[6]->title}</h2>
+        <p>{$content[6]->text|noescape}</p>
+        <button><a n:href="Admin:contentedit $content[6]->id">Upravit</a></button>
+
+        <h2>{$content[7]->title}</h2>
+        <p>{$content[7]->text|noescape}</p>
+        <button><a n:href="Admin:contentedit $content[7]->id">Upravit</a></button>
+
+        <h2>{$content[8]->title}</h2>
+        <p>{$content[8]->text|noescape}</p>
+        <button><a n:href="Admin:contentedit $content[8]->id">Upravit</a></button>
+</div>

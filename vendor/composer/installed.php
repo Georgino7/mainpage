@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'nette/web-project',
-        'pretty_version' => 'v3.1.14',
-        'version' => '3.1.14.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '2ef014738b1aecb9d41f4ffc66ef83cdc6321e85',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'latte/latte' => array(
-            'pretty_version' => 'v3.0.8',
-            'version' => '3.0.8.0',
-            'reference' => '57dcce388efe1a074993bca629741e42ed2bd41f',
+            'pretty_version' => 'v3.0.9',
+            'version' => '3.0.9.0',
+            'reference' => 'e24c4123659d0177bf28561827e117fe7453c355',
             'type' => 'library',
             'install_path' => __DIR__ . '/../latte/latte',
             'aliases' => array(),
@@ -119,9 +119,9 @@
             'dev_requirement' => false,
         ),
         'nette/php-generator' => array(
-            'pretty_version' => 'v4.0.8',
-            'version' => '4.0.8.0',
-            'reference' => 'd9157df8463b198dcbcd9f979fb09a9367c7fe99',
+            'pretty_version' => 'v4.0.9',
+            'version' => '4.0.9.0',
+            'reference' => '72cf9e20686904678d9c1de664c6f7a8c9d676ed',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nette/php-generator',
             'aliases' => array(),
@@ -182,9 +182,9 @@
             'dev_requirement' => false,
         ),
         'nette/web-project' => array(
-            'pretty_version' => 'v3.1.14',
-            'version' => '3.1.14.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '2ef014738b1aecb9d41f4ffc66ef83cdc6321e85',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
