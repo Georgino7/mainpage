@@ -112,6 +112,15 @@ nav button:hover {
 .content-text {
     max-width: 50rem;
 }
+.content-text p img {
+	width: 3.5rem;
+	filter: invert(1);
+}
+
+.content-text p a {
+	color: #eeeeee;
+    text-decoration: underline #eeeeee;
+}
 
 /*Gallery*/
 .parent {
@@ -193,5 +202,9 @@ button {
 button:hover {
     background-color: #2ec4fa;
 }
+
+/*Contact*/
+
+
 
 /*Universal*/

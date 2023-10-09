@@ -127,7 +127,7 @@ footer {
 	filter: invert(1);
 }
 
-.services, .about, .gallery{
+.services, .about, .gallery, .contact{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -138,7 +138,7 @@ footer {
 	justify-content: center;
 }
 
-.services div, .about div {
+.services div, .about div, .contact div {
 	width: 25rem;
 	opacity: 0;
 	animation: 1.5s opacitySlideDown linear;
@@ -152,9 +152,9 @@ footer {
 	height: 2.5rem;
 	filter: invert(1);
 }
-.services div:nth-child(1), .about div:nth-child(1) { animation-delay: .5s }
-.services div:nth-child(2), .about div:nth-child(2) { animation-delay: 1s }
-.services div:nth-child(3){ animation-delay: 1.5s }
+.services div:nth-child(1), .about div:nth-child(1), .contact div:nth-child(1) { animation-delay: .5s }
+.services div:nth-child(2), .about div:nth-child(2), .contact div:nth-child(2) { animation-delay: 1s }
+.services div:nth-child(3), .contact div:nth-child(3){ animation-delay: 1.5s }
 
 .services h1{
 	text-align: center;
@@ -225,4 +225,35 @@ footer {
 .gallery-title {
 	text-align: center;
 	animation: 1s opacity linear;
+}
+
+/* Contact */
+
+.contact div {
+	display: block;
+	width: 50rem !important;
+	text-align: center;
+}
+
+.contact div img {
+	width: 3.5rem;
+	filter: invert(1);
+	transform: translateY(1.2rem);
+}
+.contact p {
+	text-decoration: none;
+	text-align: justify;
+	padding-left: 15rem;
+	color: #eeeeee;
+	font-size: 1.3rem;
+}
+.contact a {
+	text-decoration: underline rgba(255, 255, 255, 0);
+	color: #eeeeee;
+	transition: 300ms;
+}
+
+.contact a:hover {
+	text-decoration: underline white;
+	color: white;
 }
