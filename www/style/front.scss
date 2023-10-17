@@ -41,6 +41,7 @@
 * {
 	padding: 0;
 	margin: 0;
+	box-sizing: border-box;
 }
 
 body {
@@ -89,9 +90,7 @@ header a:hover {
 }
 
 footer {
-	display: block;
 	width: 100%;
-	position: relative;
 	bottom: 0;
 	margin-top: auto;
 	text-align: center;
@@ -142,11 +141,12 @@ footer {
 	opacity: 0;
 	animation: 1.5s opacitySlideDown linear;
 	animation-fill-mode: both;
-	padding: 2rem;
+	margin: 2rem;
 }
 .services div img {
 	display: block;
 	margin: auto;
+	margin-bottom: 1rem;
 	width: 2.5rem;
 	height: 2.5rem;
 	filter: invert(1);
@@ -173,6 +173,7 @@ footer {
 
 .image {
 	margin: 0.5rem;
+	margin-top: 1rem;
 	width: 25rem;
 	height: 15rem;
 	border-radius: 0.8rem;
@@ -229,7 +230,6 @@ footer {
 /* Contact */
 
 .contact div {
-	display: block;
 	width: 50rem !important;
 	text-align: center;
 }
