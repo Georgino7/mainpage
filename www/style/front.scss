@@ -44,6 +44,9 @@
 	box-sizing: border-box;
 }
 
+#body{
+	min-height: 97vh;
+}
 body {
 	background: linear-gradient(-45deg, #23d5ab, #23a6d5, #2ad7ce, #4f65b5bc, #23d585);
 	background-size: 400% 400%;
@@ -90,6 +93,7 @@ header a:hover {
 }
 
 footer {
+	height: 3vh;
 	width: 100%;
 	bottom: 0;
 	margin-top: auto;
