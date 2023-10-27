@@ -10,7 +10,6 @@
 </head>
 
 <body>
-<div id="body">
 	<header>
 	<a n:href=":Default" class="ajax">Domů</a>
 	<a n:href=":About" class="ajax">O nás</a>
@@ -20,7 +19,6 @@
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
 	{include content}
-</div>
 	<footer>
 		© Copyright {date('Y')} NAFU All Rights Reserved
 	</footer>
