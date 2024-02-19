@@ -7,12 +7,12 @@ const image = 0;
 <div class="about">
 
 <div>
-<h1>{$content[4]->title}</h1>
+<h2>{$content[4]->title}</h2>
 <p>{$content[4]->text}</p>
 </div>
 
 <div>
-<h1>{$content[5]->title}</h1>
+<h2>{$content[5]->title}</h2>
 <p>{$content[5]->text}</p>
 </div>
 
@@ -20,6 +20,7 @@ const image = 0;
 
 <h1 class="gallery-title">Naše projekty</h1>
 <div class="gallery flex-center">
+
 {foreach $content as $image}
 
 {if $image->tag !='CONTENT'}
