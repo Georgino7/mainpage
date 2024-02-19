@@ -100,10 +100,15 @@ footer {
 	text-align: center;
 }
 
+h2 {
+	font-size: 2.6rem;
+	margin-bottom: 2rem;
+}
 
 /*Homepage*/
 
 .title {
+	margin-top: 2rem;
 	display: flex;
 	width: 100%;
 	justify-content: center;
@@ -149,8 +154,7 @@ footer {
 }
 .services div img {
 	display: block;
-	margin: auto;
-	margin-bottom: 1rem;
+	margin: 1rem auto 1rem auto;
 	width: 2.5rem;
 	height: 2.5rem;
 	filter: invert(1);
@@ -167,6 +171,11 @@ footer {
 	text-align: justify;
 	color: #eeeeee;
 	font-size: 1.3rem;
+}
+
+.about {
+	margin-top: 4rem;
+	margin-bottom: 4rem;
 }
 
 .about div {
@@ -232,10 +241,16 @@ footer {
 }
 
 /* Contact */
+.contact {
+	width: 80% !important;
+	margin: auto;
+	margin-top: 4rem;
+}
 
 .contact div {
-	width: 50rem !important;
+	width: 30rem !important;
 	text-align: center;
+	padding: 0 5rem 0 5rem;
 }
 
 .contact div img {
@@ -246,7 +261,6 @@ footer {
 .contact p {
 	text-decoration: none;
 	text-align: justify;
-	padding-left: 15rem;
 	color: #eeeeee;
 	font-size: 1.3rem;
 }
