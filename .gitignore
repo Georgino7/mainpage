@@ -1,1 +1,3 @@
-/app/config/local.neon
+!.gitignore
+vendor
+config/local.neon
