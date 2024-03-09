@@ -122,21 +122,18 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 
 	public function imageFormSucceeded($form, $data): void
 	{
-	$imageId = $this->getParameter('id');
-	$imageId = intval($imageId);
-	if ($data['image']->isOk()) {
-		$data->image->move('images/' . $data['image']->getSanitizedName());
-	}
-	else {
-		unset($data->image);
-		$data['image'] = null;
-	}
-	if ($imageId) {
-		$image = $this->contentFacade->editImage($imageId, $data);
-	} else {
-		$image = $this->contentFacade->insertImage($data);
-	}
-	$this->redirect('Admin:projects');
+		$img = $data['image'];
+		if ($img->isImage() && $img->isOk()) {
+			$img = \Nette\Utils\Image::fromFile($img->getTemporaryFile());
+			$img->save('images/' . $data['image']->getSanitizedName());
+		}
+		else {
+			unset($data['image']);
+			$data['image'] = null;
+		}
+		bdump($img);
+		$this->contentFacade->insertImage($data["title"], 'images/' . $data['image']->getSanitizedName() , $data["tag"]);
+		$this->redirect('Admin:projects');
 	}
 
 	protected function createComponentEditForm(): Form
@@ -167,7 +164,7 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 		$imageId = $this->getParameter('id');
 		$imageId = intval($imageId);
 
-		if ($data['image']->isOk()) {
+		if ($data['image']) {
 			$data->image->move('upload/' . $data['image']->getSanitizedName());
 		}
 		else{

@@ -49,24 +49,28 @@ final class ContentFacade
 		return $image;
 	}
 
-    public function insertImage($data)
+    public function insertImage($title , $link , $tag)
 	{
 		$image = $this->database
 			->table('content')
 			->insert([
-				self::ColumnTitle => $data["title"],
-				self::ColumnImage => $data["image"],
-				self::ColumnTag => $data["tag"]
+				self::ColumnTitle => $title,
+				self::ColumnImage => $link,
+				self::ColumnTag => $tag
 			]);
 		return $image;
 	}
 
-	public function editImage(int $id, $data)
+	public function editImage(int $id, $title , $link , $tag)
 	{
 		$image = $this->database
 			->table('content')
 			->get($id);
-		$image->update($data);
+		$image->update([
+			self::ColumnTitle => $title,
+			self::ColumnImage => $link,
+			self::ColumnTag => $tag
+		]);
 		return $image;
 	}
 
