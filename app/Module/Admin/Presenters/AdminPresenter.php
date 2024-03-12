@@ -132,7 +132,7 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 			$data['image'] = null;
 		}
 		bdump($img);
-		$this->contentFacade->insertImage($data["title"], 'images/' . $data['image']->getSanitizedName() , $data["tag"]);
+		$this->contentFacade->insertImage($data["title"], 'images/' . $data['image']->getSanitizedName() , $data["tag"] , $data["link"]);
 		$this->redirect('Admin:projects');
 	}
 

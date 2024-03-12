@@ -14,7 +14,8 @@ final class ContentFacade
     ColumnTitle = 'title',
     ColumnText = 'text',
         ColumnImage = 'image',
-        ColumnTag = 'tag';
+        ColumnTag = 'tag',
+		ColumnLink = 'link';
     
     private Nette\Database\Explorer $database;
 
@@ -49,27 +50,29 @@ final class ContentFacade
 		return $image;
 	}
 
-    public function insertImage($title , $link , $tag)
+    public function insertImage($title , $image , $tag , $link)
 	{
 		$image = $this->database
 			->table('content')
 			->insert([
 				self::ColumnTitle => $title,
-				self::ColumnImage => $link,
-				self::ColumnTag => $tag
+				self::ColumnImage => $image,
+				self::ColumnTag => $tag,
+				self::ColumnLink => $link
 			]);
 		return $image;
 	}
 
-	public function editImage(int $id, $title , $link , $tag)
+	public function editImage(int $id, $title , $image , $tag , $link)
 	{
 		$image = $this->database
 			->table('content')
 			->get($id);
 		$image->update([
 			self::ColumnTitle => $title,
-			self::ColumnImage => $link,
-			self::ColumnTag => $tag
+			self::ColumnImage => $image,
+			self::ColumnTag => $tag,
+			self::ColumnLink => $link
 		]);
 		return $image;
 	}
