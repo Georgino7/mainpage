@@ -138,12 +138,12 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 
 	protected function createComponentEditForm(): Form
 	{
+		$imageId = $this->getParameter('id');
+		$image = $this->contentFacade->getContentById(intval($imageId));
 		$form = new Form;
 		$form->addText('title', 'Titulek: ')
-			->setRequired();
-		$form->addUpload('image', 'Obrázek:')
-    	    ->addRule(Form::IMAGE, 'Thumbnail must be JPEG, PNG or GIF')
-			->setRequired();
+			->setDefaultValue($image['title']);
+		$form->addUpload('image', 'Obrázek:');
 		$tag = [
 			'CONTENT' => 'Content',
 			'IMAGE' => 'Image'
@@ -163,19 +163,18 @@ final class AdminPresenter extends Nette\Application\UI\Presenter
 	{
 		$imageId = $this->getParameter('id');
 		$imageId = intval($imageId);
+		$prev = $this->contentFacade->getContentById(intval($imageId));
+		$img = $data['image'];
+		if ($img->isImage() && $img->isOk()) {
+			$img = \Nette\Utils\Image::fromFile($img->getTemporaryFile());
+			$img->save('images/' . $data['image']->getSanitizedName());
+			$image = $this->contentFacade->editImage($imageId, $data["title"], 'images/' . $data['image']->getSanitizedName() , $data["tag"], $data["link"]);
+		}
+		else {
+			$data['image'] = $prev['image'];
+			$image = $this->contentFacade->editImage($imageId, $data["title"], $data['image'] , $data["tag"], $data["link"]);
+		}
 
-		if ($data['image']) {
-			$data->image->move('upload/' . $data['image']->getSanitizedName());
-		}
-		else{
-			unset($data->image);
-		}
-
-		if ($imageId) {
-			$image = $this->contentFacade->editimage($imageId, $data);
-		} else {
-			$image = $this->contentFacade->insertimage($data);
-		}
 		$this->redirect('Admin:projects');
 	}
 
